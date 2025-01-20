@@ -13,5 +13,76 @@ body {
     font-family: "Press Start 2P", system-ui;
     color: whitesmoke;
     background-color: #28282B;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
 
+.number {
+    text-align: center;
+    background-color: whitesmoke;
+    color: #28282B;
+    font-size: 6rem;
+    width: 25%;
+    padding: 4rem 0rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1 {
+    font-size: 4rem;
+    padding-top: 2.5rem;
+}
+
+.between {
+    text-align: center;
+    font-size: 2rem;
+}
+
+.guess {
+    background: none;
+    border: 4px solid whitesmoke;
+    font-family: inherit;
+    color: inherit;
+    font-size: 5rem;
+    width: 15rem;
+    padding: 2.5rem;
+    text-align: center;
+    display: block;
+    margin-bottom: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn {
+    display: block;
+    border: none;
+    background-color: whitesmoke;
+    color: #28282B;
+    font-size: 2rem;
+    font-family: inherit;
+    padding: 2rem 3rem;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn:hover {
+    background-color: #ccc;
+}
+
+.label {
+    display: flex;
+    margin: 3rem;
+}
+
+.label p {
+    margin: 3rem;
+    font-size: 2rem;
+}
+
+.hidden {
+    display: none;
 }
