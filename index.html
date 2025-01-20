@@ -3,9 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&family=Press+Start+2P&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="index.css">
     <title>Guess the Number!</title>
 </head>
 <body>
-    
+    <header>
+        <div class="number">?</div>
+        <h1>GUESS THE NUMBER!</h1>
+        <p class="between">Enter a number between 1 and 20</p>
+    </header>
+    <main>
+        <section class="before">
+            <!-- <p class="message">Start guessing...</p> -->
+            <input type="number" class="guess">
+            <button class="btn check">Check!</button>
+            <div class="label">
+                <p class="label-score">🎯 Score: <span class="score">20</span></p>
+                <p class="label-highscore">🥇 High Score: <span class="highscore">0</span></p>
+            </div>
+            
+        </section>
+        <section class="after hidden">
+            <div id="message">CONGRATS! YOU WIN!</div>
+            <div id="restart">Play Again</div>
+        </section>
+    </main>
 </body>
 </html>
