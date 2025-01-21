@@ -1,7 +1,7 @@
 'use strict';
 
-const targetNum = Math.floor(Math.random() * 10) + 1;
-document.querySelector('.number').textContent = targetNum;
+let targetNum = Math.floor(Math.random() * 10) + 1;
+document.querySelector('.number').textContent = targetNum; // Temp
 let score = 10;
 
 document.querySelector('.check').addEventListener('click', function () {
@@ -17,8 +17,18 @@ document.querySelector('.check').addEventListener('click', function () {
         document.querySelector('#score').append(`Your Score: ${score}`);
         document.querySelectorAll('.restart').forEach(el => {
             el.addEventListener('click', function () {
-                window.location.reload();
-                return false;
+                // window.location.reload();
+                // return false;
+                document.querySelectorAll('.before').forEach(el => {
+                    el.classList.remove('hidden');
+                });
+                document.querySelector('.after-win').classList.add('hidden');
+                score = 10;
+                targetNum = Math.floor(Math.random() * 10) + 1;
+                document.querySelector('.number').textContent = targetNum; // Temp
+                document.querySelector('.message').textContent = 'Start guessing...';
+                document.querySelector('.guess').value = '';
+                document.querySelector('.score').textContent = score;
             })
         });
     } else if (guess !== targetNum) {
@@ -37,6 +47,7 @@ document.querySelector('.check').addEventListener('click', function () {
                 el.classList.add('hidden');
             })
             document.querySelector('.after-loss').classList.remove('hidden');
+            document.querySelector('#answer').append(`The Number is ${targetNum}`);
             document.querySelectorAll('.restart').forEach(el => {
                 el.addEventListener('click', function () {
                     window.location.reload();
