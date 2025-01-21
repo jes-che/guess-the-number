@@ -99,7 +99,7 @@ h1 {
     text-shadow: 1px 1px 1px magenta;
 }
 
-#restart {
+.restart {
     font-size: 2.75rem;
     border: 1px solid whitesmoke;
     padding: 2rem 2.5rem;
@@ -112,6 +112,6 @@ h1 {
     margin-right: auto;
 }
 
-#restart:hover {
+.restart:hover {
     color: magenta;
 }
