@@ -5,11 +5,15 @@ document.querySelector('.number').textContent = targetNum; // Temp
 let score = 10;
 let highScore = 0;
 
+const displayMessage = function (message) {
+    document.querySelector('.message').textContent = message;
+}
+
 document.querySelector('.check').addEventListener('click', function () {
     const guess = Number(document.querySelector('.guess').value);
 
     if (!guess) {
-        document.querySelector('.message').textContent = 'Invalid guess! Enter a number!';
+        displayMessage('Invalid guess! Enter a number!');
     } else if (guess === targetNum) {
         document.querySelectorAll('.before').forEach(el => {
             el.classList.add('hidden');
@@ -18,8 +22,6 @@ document.querySelector('.check').addEventListener('click', function () {
         document.querySelector('#score').textContent = `Your Score: ${score}`;
         document.querySelectorAll('.restart').forEach(el => {
             el.addEventListener('click', function () {
-                // window.location.reload();
-                // return false;
                 document.querySelectorAll('.before').forEach(el => {
                     el.classList.remove('hidden');
                 });
@@ -27,7 +29,7 @@ document.querySelector('.check').addEventListener('click', function () {
                 score = 10;
                 targetNum = Math.floor(Math.random() * 10) + 1;
                 document.querySelector('.number').textContent = targetNum; // Temp
-                document.querySelector('.message').textContent = 'Start guessing...';
+                displayMessage('Start guessing...');
                 document.querySelector('.guess').value = '';
                 document.querySelector('.score').textContent = score;
             })
@@ -38,15 +40,9 @@ document.querySelector('.check').addEventListener('click', function () {
         }
     } else if (guess !== targetNum) {
         if (score > 1) {
-            if (guess > targetNum) {
-                document.querySelector('.message').textContent = 'Too high! Guess again!';
-                score--;
-                document.querySelector('.score').textContent = score;
-            } else if (guess < targetNum) {
-                document.querySelector('.message').textContent = 'Too low! Guess again!';
-                score--;
-                document.querySelector('.score').textContent = score;
-            }
+            displayMessage(guess > targetNum ? 'Too high! Guess again!' : 'Too low! Guess again!');
+            score--;
+            document.querySelector('.score').textContent = score;
         } else {
             document.querySelectorAll('.before').forEach(el => {
                 el.classList.add('hidden');
@@ -55,8 +51,6 @@ document.querySelector('.check').addEventListener('click', function () {
             document.querySelector('#answer').textContent = `The Number is ${targetNum}`;
             document.querySelectorAll('.restart').forEach(el => {
                 el.addEventListener('click', function () {
-                    // window.location.reload();
-                    // return false;
                     document.querySelectorAll('.before').forEach(el => {
                         el.classList.remove('hidden');
                     });
@@ -64,7 +58,7 @@ document.querySelector('.check').addEventListener('click', function () {
                     score = 10;
                     targetNum = Math.floor(Math.random() * 10) + 1;
                     document.querySelector('.number').textContent = targetNum; // Temp
-                    document.querySelector('.message').textContent = 'Start guessing...';
+                    displayMessage('Start guessing...');
                     document.querySelector('.guess').value = '';
                     document.querySelector('.score').textContent = score;
                 })
