@@ -1,7 +1,7 @@
 'use strict';
 
 let targetNum = Math.floor(Math.random() * 10) + 1;
-document.querySelector('.number').textContent = targetNum; // Temp
+// document.querySelector('.number').textContent = targetNum; // Temp
 let score = 10;
 let highScore = 0;
 
@@ -28,7 +28,7 @@ document.querySelector('.check').addEventListener('click', function () {
                 document.querySelector('.after-win').classList.add('hidden');
                 score = 10;
                 targetNum = Math.floor(Math.random() * 10) + 1;
-                document.querySelector('.number').textContent = targetNum; // Temp
+                // document.querySelector('.number').textContent = targetNum; // Temp
                 displayMessage('Start guessing...');
                 document.querySelector('.guess').value = '';
                 document.querySelector('.score').textContent = score;
@@ -57,7 +57,7 @@ document.querySelector('.check').addEventListener('click', function () {
                     document.querySelector('.after-loss').classList.add('hidden');
                     score = 10;
                     targetNum = Math.floor(Math.random() * 10) + 1;
-                    document.querySelector('.number').textContent = targetNum; // Temp
+                    // document.querySelector('.number').textContent = targetNum; // Temp
                     displayMessage('Start guessing...');
                     document.querySelector('.guess').value = '';
                     document.querySelector('.score').textContent = score;
