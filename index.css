@@ -1,3 +1,16 @@
+:root {
+    /* TEXT VARIABLES */
+    --font: "Press Start 2P", system-ui;
+    --text-light-1: whitesmoke;
+    --text-light-2: magenta;
+    --text-dark: #28282B;
+
+    /* COLOR VARIABLES */
+    --bg-light-1: whitesmoke;
+    --bg-light-2: #ccc;
+    --bg-dark: #28282B;
+}
+
 html, body {
     width: 100%;
 }
@@ -10,20 +23,20 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Press Start 2P", system-ui;
-    color: whitesmoke;
-    background-color: #28282B;
+    font-family: var(--font);
+    color: var(--text-light-1);
+    background-color: var(--bg-dark);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    text-align: center;
 }
 
 .number {
-    text-align: center;
-    background-color: whitesmoke;
-    color: #28282B;
+    background-color: var(--bg-light-1);
+    color: var(--text-dark);
     font-size: 6rem;
     width: 20rem;
     padding: 4rem 0rem;
@@ -34,22 +47,20 @@ body {
 h1 {
     font-size: 4rem;
     padding-top: 2.5rem;
-    text-shadow: 1px 1px 1px magenta;
+    text-shadow: 1px 1px 1px var(--text-light-2);
 }
 
 .between {
-    text-align: center;
     font-size: 2rem;
 }
 
 .message {
-    text-align: center;
     font-size: 1.5rem;
 }
 
 .guess {
     background: none;
-    border: 4px solid whitesmoke;
+    border: 4px solid var(--text-light-1);
     font-family: inherit;
     color: inherit;
     font-size: 5rem;
@@ -65,8 +76,8 @@ h1 {
 .btn {
     display: block;
     border: none;
-    background-color: whitesmoke;
-    color: #28282B;
+    background-color: var(--bg-light-1);
+    color: var(--text-dark);
     font-size: 2rem;
     font-family: inherit;
     padding: 2rem 3rem;
@@ -76,7 +87,7 @@ h1 {
 }
 
 .btn:hover {
-    background-color: #ccc;
+    background-color: var(--bg-light-2);
 }
 
 .label {
@@ -100,7 +111,7 @@ h1 {
 #message-win, #message-loss {
     font-size: 5rem;
     margin-bottom: 5rem;
-    text-shadow: 1px 1px 1px magenta;
+    text-shadow: 1px 1px 1px var(--text-light-2);
 }
 
 #score, #answer {
@@ -110,10 +121,10 @@ h1 {
 
 .restart {
     font-size: 2.75rem;
-    border: 1px solid whitesmoke;
+    border: 1px solid var(--text-light-1);
     padding: 2rem 2.5rem;
     border-radius: 5rem;
-    box-shadow: whitesmoke 2px 2px;
+    box-shadow: var(--text-light-1) 2px 2px;
     cursor: pointer;
     width: 30rem;
     margin-left: auto;
@@ -121,5 +132,72 @@ h1 {
 }
 
 .restart:hover {
-    color: magenta;
+    color: var(--text-light-2);
+}
+
+/* RESPONSIVE */
+/* TABLET SIZE (768px) */
+@media only screen and (max-width: 48em) {
+    h1 {
+        font-size: 3.25rem;
+    }
+
+    .between {
+        font-size: 1.75rem;
+    }
+
+    .label p {
+        font-size: 1.75rem;
+    }
+
+    #message-win {
+        font-size: 6rem;
+    }
+}
+
+/* MOBILE SIZE (600px) */
+@media only screen and (max-width: 37.5em) {
+    .number {
+        font-size: 5rem;
+        width: 15rem;
+    }
+
+    h1 {
+        font-size: 2.25rem;
+    }
+
+    .between {
+        font-size: 1.25rem;
+    }
+
+    .guess {
+        width: 10rem;
+    }
+
+    .btn {
+        font-size: 1.75rem;
+        padding: 2rem;
+    }
+
+    .label {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .label p {
+        font-size: 1.25rem;
+    }
+
+    #message-win, #message-loss {
+        font-size: 4rem;
+    }
+
+    #score, #answer {
+        font-size: 2.5rem;
+    }
+
+    .restart {
+        font-size: 2.25rem;
+        padding: 2rem 0.5rem;
+    }
 }
