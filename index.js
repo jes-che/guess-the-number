@@ -7,6 +7,21 @@ let highScore = 0;
 const displayMessage = function (message) {
     document.querySelector('.message').textContent = message;
 };
+const restart = function (targetClass) {
+    document.querySelectorAll('.restart').forEach(el => {
+        el.addEventListener('click', function () {
+            document.querySelectorAll('.before').forEach(el => {
+                el.classList.remove('hidden');
+            });
+            document.querySelector(targetClass).classList.add('hidden');
+            score = 10;
+            targetNum = Math.floor(Math.random() * 10) + 1;
+            displayMessage('Start guessing...');
+            document.querySelector('.guess').value = '';
+            document.querySelector('.score').textContent = score;
+        })
+    });
+}
 
 document.querySelector('.check').addEventListener('click', function () {
     const guess = Number(document.querySelector('.guess').value);
@@ -19,19 +34,7 @@ document.querySelector('.check').addEventListener('click', function () {
         });
         document.querySelector('.after-win').classList.remove('hidden');
         document.querySelector('#score').textContent = `Your Score: ${score}`;
-        document.querySelectorAll('.restart').forEach(el => {
-            el.addEventListener('click', function () {
-                document.querySelectorAll('.before').forEach(el => {
-                    el.classList.remove('hidden');
-                });
-                document.querySelector('.after-win').classList.add('hidden');
-                score = 10;
-                targetNum = Math.floor(Math.random() * 10) + 1;
-                displayMessage('Start guessing...');
-                document.querySelector('.guess').value = '';
-                document.querySelector('.score').textContent = score;
-            })
-        });
+        restart('.after-win');
         if (score > highScore) {
             highScore = score;
             document.querySelector('.highscore').textContent = highScore;
@@ -47,19 +50,7 @@ document.querySelector('.check').addEventListener('click', function () {
             })
             document.querySelector('.after-loss').classList.remove('hidden');
             document.querySelector('#answer').textContent = `The Number is ${targetNum}`;
-            document.querySelectorAll('.restart').forEach(el => {
-                el.addEventListener('click', function () {
-                    document.querySelectorAll('.before').forEach(el => {
-                        el.classList.remove('hidden');
-                    });
-                    document.querySelector('.after-loss').classList.add('hidden');
-                    score = 10;
-                    targetNum = Math.floor(Math.random() * 10) + 1;
-                    displayMessage('Start guessing...');
-                    document.querySelector('.guess').value = '';
-                    document.querySelector('.score').textContent = score;
-                })
-            });
+            restart('.after-loss');
         }
     }
 });
